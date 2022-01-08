@@ -13,3 +13,10 @@ code for casino smart contract can be found
 - mocha
 - web3
 - ganache
+
+## How to get started
+- git clone this repository ``` git clone  ```
+
+- install all dependdencies ```npm install```
+
+- run test  ```npm run test```
