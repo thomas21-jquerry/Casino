@@ -24,7 +24,7 @@ code for casino smart contract can be found
 
 ## Working 
 - player enters the bet by betting on a number between 0 and 9 with any amount of ether 
-- After 100 players entered the contract automatically picks winners based on a random number generated between 1 and 10
+- After 100 players entered the contract automatically picks winners based on a random number generated between 0 and 9
 - The players who have betted successfully will recieve the percentage of ether he/she contributed
 - All the states will be cleared after the contract picks the winners 
 - All the winners accound address could be found after calling getWinnerAddresses in the smart contract
