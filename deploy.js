@@ -3,21 +3,22 @@ const Web3 = require('web3');
 const { interface, bytecode } = require('./compile');
 
 const provider = new HDWalletProvider(
-  'horse spirit blouse aspect absurd three brush enhance creek option search cigar',
+  '',  
   // remember to change this to your own phrase!
-  'https://rinkeby.infura.io/v3/f90acdf80a134a488d1df51e4ef88bc5'
+  ''
   // remember to change this to your own endpoint!
 );
 const web3 = new Web3(provider);
 
+// deploy from account 0
 const deploy = async () => {
   const accounts = await web3.eth.getAccounts();
 
-  console.log('Attempting to deploy from account', accounts[0]);
+  console.log('Attempting to deploy from account', accounts[0]); 
 
   const result = await new web3.eth.Contract(JSON.parse(interface))
     .deploy({ data: bytecode })
-    .send({ gas: '1000000', from: accounts[0] });
+    .send({ gas: '1000000', from: accounts[0] });  // defining gas price
 
   console.log('Contract deployed to', result.options.address);
   provider.engine.stop();
@@ -25,29 +26,3 @@ const deploy = async () => {
 deploy();
 
 
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-// const Web3 = require('web3');
-// const { interface, bytecode } = require('./compile');
-
-// const provider = new HDWalletProvider(
-//   'REPLACE_WITH_YOUR_MNEMONIC',
-//   // remember to change this to your own phrase!
-//   'https://rinkeby.infura.io/v3/15c1d32581894b88a92d8d9e519e476c'
-//   // remember to change this to your own endpoint!
-// );
-// const web3 = new Web3(provider);
-
-// const deploy = async () => {
-//   const accounts = await web3.eth.getAccounts();
-
-//   console.log('Attempting to deploy from account', accounts[0]);
-
-//   const result = await new web3.eth.Contract(JSON.parse(interface))
-//     .deploy({ data: bytecode })
-//     .send({ gas: '1000000', from: accounts[0] });
-
-//   console.log('Contract deployed to', result.options.address);
-//   provider.engine.stop();
-// };
-// deploy();
